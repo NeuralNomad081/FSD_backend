@@ -1,9 +1,15 @@
 const http = require ('http');
-const server = http.createServer((req,res)=>{
+const  fs = require("fs/promises")
+
+
+
+
+const server = http.createServer(async (req,res)=>{
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
     res.write('<h1>Hello World this is shashwat</h1>');
-    res.end();
+    const data = await fs.readFile("./home.html", "utf-8");
+    res.end(data);
 });
 PORT = 3000
 server.listen(PORT,()=>{
