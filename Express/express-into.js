@@ -2,7 +2,7 @@ import express from 'express';
 const server = express();
 server.get('/api', (req,res)=>{
     //using object destructuing
-    const {name, rollNo} = req.query;
+    const {name = "Jhon Doe", rollNo = 100} = req.query; //we can also use by default values
     res.send(`Hello Mr. ${name} and your roll number is ${rollNo}`);
 });
 
