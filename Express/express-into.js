@@ -1,5 +1,17 @@
 import express from 'express';
 const server = express();
+
+//using parameters 
+server.get('/api/:name/:age', (req,res)=>{
+try { const data = req.params;
+    res.send(`Hello ${data.name} and your age is :${data.age}`);
+}
+    catch(error){
+        console.log(error.message);
+    }
+});
+//correct URL : http://localhost:3000/api/Shashwat/21
+
 server.get('/api', (req,res)=>{
     try {
     //using object destructuing
