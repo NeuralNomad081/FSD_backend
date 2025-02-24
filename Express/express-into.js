@@ -1,9 +1,9 @@
 import express from 'express';
 const server = express();
 server.get('/api', (req,res)=>{
-    const data = req.query;
-    console.log(data);
-    res.send(`Hello Mr.${data.name} and your roll number is ${data.rollNo}`);
+    //using object destructuing
+    const {name, rollNo} = req.query;
+    res.send(`Hello Mr. ${name} and your roll number is ${rollNo}`);
 });
 
 const PORT = 3000;
