@@ -36,6 +36,13 @@ app.patch('/api/updateUser/:id', (req,res) => {
     users[index].name = name;
     res.send("User updated Successfully");
 });
+app.delete('/api/deleteUser/:id', (req,res) => {
+    const {id} = req.params; 
+    const index= users.findIndex(user => user.id == id);
+    users.splice(index,1);
+    res.send("User is deleted Successfully");
+});
+
 
 app.post('/api/createUser', (req,res)=>{
     res.send("This is post request data from server")
